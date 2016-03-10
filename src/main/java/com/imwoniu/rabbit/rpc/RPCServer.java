@@ -31,7 +31,7 @@ public class RPCServer {
             ConnectionFactory factory = new ConnectionFactory();
 
             // 创建连接
-            factory.setHost("123.57.242.222");
+            factory.setHost("localhost");
             factory.setUsername("test");
             factory.setPassword("test");
 

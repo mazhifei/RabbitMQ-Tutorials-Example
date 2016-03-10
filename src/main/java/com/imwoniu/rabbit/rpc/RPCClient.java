@@ -17,7 +17,7 @@ public class RPCClient {
 
     public RPCClient() throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("123.57.242.222");
+        factory.setHost("localhost");
         factory.setUsername("test");
         factory.setPassword("test");
 

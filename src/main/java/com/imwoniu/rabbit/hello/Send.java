@@ -15,7 +15,7 @@ public class Send {
 
     public static void main(String[] args) throws IOException {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("123.57.242.222");
+        factory.setHost("localhost");
         factory.setUsername("test");
         factory.setPassword("test");
 
