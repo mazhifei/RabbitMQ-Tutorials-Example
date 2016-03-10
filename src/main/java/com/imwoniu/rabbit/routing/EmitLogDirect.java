@@ -1,18 +1,17 @@
-package com.imwoniu.rabbit.workqueue;
+package com.imwoniu.rabbit.routing;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.MessageProperties;
 
 import java.io.IOException;
 
 /**
  * Created by Work on 2016/3/10.
  */
-public class NewTask {
+public class EmitLogDirect {
 
-    private static final String TASK_QUEUE_NAME = "task_queue";
+    private static final String EXCHANGE_NAME = "direct_logs";
 
     public static void main(String[] args) throws IOException {
         ConnectionFactory factory = new ConnectionFactory();
@@ -21,16 +20,20 @@ public class NewTask {
         factory.setPassword("test");
 
         Connection connection = factory.newConnection();
+
         Channel channel = connection.createChannel();
 
-        channel.queueDeclare(TASK_QUEUE_NAME, true, false, false, null);
+        channel.exchangeDeclare(EXCHANGE_NAME, "direct");
 
-        String message = "work queue message";
+        // 根据定义的severity发送到对应的Queue中
+        String severity = "error";
+        String message = "direct log message";
 
-        channel.basicPublish("", TASK_QUEUE_NAME, MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes("UTF-8"));
-        System.out.println(" [x] Sent '" + message + "'");
+        channel.basicPublish(EXCHANGE_NAME, severity, null, message.getBytes("UTF-8"));
+        System.out.println(" [x] Sent '" + severity + "':'" + message + "'");
 
         channel.close();
         connection.close();
     }
+
 }
