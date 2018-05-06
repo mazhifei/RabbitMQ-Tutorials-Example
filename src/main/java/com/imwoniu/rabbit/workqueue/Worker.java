@@ -20,14 +20,14 @@ public class Worker {
     public static void main(String[] args) throws IOException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
-        factory.setUsername("test");
-        factory.setPassword("test");
+        factory.setUsername("guest");
+        factory.setPassword("guest");
 
         final Connection connection = factory.newConnection();
         final Channel channel = connection.createChannel();
 
         channel.queueDeclare(TASK_QUEUE_NAME, true, false, false, null);
-        channel.basicQos(1);
+//        channel.basicQos(1);
 
         final Consumer consumer = new DefaultConsumer(channel) {
             @Override

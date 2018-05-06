@@ -17,8 +17,8 @@ public class NewTask {
     public static void main(String[] args) throws IOException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
-        factory.setUsername("test");
-        factory.setPassword("test");
+        factory.setUsername("guest");
+        factory.setPassword("guest");
 
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
