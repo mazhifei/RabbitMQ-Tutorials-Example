@@ -1,10 +1,14 @@
 package com.imwoniu.rabbit.workqueue;
 
-import com.rabbitmq.client.*;
-import com.sun.javafx.beans.annotations.Default;
-import com.sun.javafx.tk.Toolkit;
-
 import java.io.IOException;
+
+import com.rabbitmq.client.AMQP;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.Consumer;
+import com.rabbitmq.client.DefaultConsumer;
+import com.rabbitmq.client.Envelope;
 
 /**
  * Created by Work on 2016/3/10.
