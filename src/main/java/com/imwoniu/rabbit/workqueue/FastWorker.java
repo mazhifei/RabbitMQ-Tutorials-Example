@@ -13,7 +13,7 @@ import com.rabbitmq.client.Envelope;
 /**
  * Created by Work on 2016/3/10.
  */
-public class Worker {
+public class FastWorker {
 
     private static final String TASK_QUEUE_NAME = "task_queue";
 
